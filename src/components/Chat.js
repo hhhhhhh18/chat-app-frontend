@@ -17,10 +17,12 @@ export default function Chat({ username }) {
   const messagesEndRef = useRef();
   const socketRef = useRef();
   const typingTimeoutRef = useRef();
+useEffect(() => {
+  
+  const backendUrl = 'https://chat-app-backend-1-zcza.onrender.com';
+  
+  socketRef.current = io(backendUrl, { query: { username } });
 
-  useEffect(() => {
- const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
-socketRef.current = io(backendUrl, { query: { username } });
 
 
     // Listen for regular messages
