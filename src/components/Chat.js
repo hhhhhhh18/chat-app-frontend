@@ -18,10 +18,10 @@ export default function Chat({ username }) {
   const socketRef = useRef();
   const typingTimeoutRef = useRef();
 useEffect(() => {
-  
-  const backendUrl = 'https://chat-app-backend-1-zcza.onrender.com';
-  
+  const backendUrl = process.env.REACT_APP_API_URL;
   socketRef.current = io(backendUrl, { query: { username } });
+  
+
 
 
 
